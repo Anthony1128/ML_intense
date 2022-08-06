@@ -10,8 +10,8 @@ from sklearn.model_selection import GridSearchCV
 usd_rate = pandas.read_excel('currency_table.xlsx')
 curs = usd_rate.curs
 
-# X - Входные данные, на основе чего делаем прогноз
-# y - Выходные данные, то что прогнозируем
+# X - Input data, base for prediction
+# y - Input data, to be predicted
 
 FUTURE_DAYS = 7
 PAST_DAYS = 14
@@ -34,18 +34,18 @@ future_columns = [f'future_{i}' for i in range(FUTURE_DAYS)]
 df_X = pandas.DataFrame(data=past_X, columns=past_columns)
 df_y = pandas.DataFrame(data=future_y, columns=future_columns)
 
-# обучающая выборка (тренировочная)
+# teaching dataset (training)
 X_train = df_X[:-10]
 y_train = df_y[:-10]
 
-# тестовая выборка (проверочная)
+# testing dataset (checking)
 X_test = df_X[-10:]
 y_test = df_y[-10:]
 
-# Регрессия - прогнозирование конкретного значения величины (не дискретной)
-# Классификация - предсказание принадлежности к ограниченному количеству классов (дискретное значение)
+# Regression - predicting a specific value of a quantity (not discrete)
+# Classification - prediction of belonging to a limited number of classes (discrete value)
 
-# Обучаем модель и делаем предсказание
+# Teaching the model and making a prediction
 forest = RandomForestRegressor()
 forest.fit(X_train, y_train)
 prediction = forest.predict(X_test)
@@ -64,7 +64,7 @@ plt.plot(knn_prediction[0], label='KNN Prediction')
 knn_mae = mean_absolute_error(y_test.iloc[0], knn_prediction[0])
 print(f'KNN mean_absolute_error = {knn_mae}')
 
-# Вариант с другим алгоритмом (MLPRegressor)
+# Another algorithm type (MLPRegressor)
 mlp = MLPRegressor()
 mlp.fit(X_train, y_train)
 mlp_prediction = mlp.predict(X_test)
@@ -93,7 +93,7 @@ plt.plot(best_mlp_prediction[0], label='Best MLP Prediction')
 best_mlp_mae = mean_absolute_error(y_test.iloc[0], best_mlp_prediction[0])
 print(f'Best MLP mean_absolute_error = {best_mlp_mae}')
 
-# Вывод графика
+# Graph output
 plt.legend()
 plt.show()
 

@@ -1,21 +1,21 @@
 import pandas
 from sklearn.ensemble import RandomForestClassifier
 
-# Формируем датасет
+# Prepare dataset
 trips = pandas.read_excel('trips_data.xlsx', index_col=0)
 df = pandas.get_dummies(trips, columns=['city', 'vacation_preference', 'transport_preference'])
 
-# То, на основе чего делаем прогноз
+# Base value for prediction
 X = df.drop('target', axis=1)
 
-# То, что прогнозируем
+# Value that is going to be predicted
 y = df['target']
 
-# Создаем и обучаем модель
+# Create and teach model
 model = RandomForestClassifier()
 model.fit(X, y)
 
-# Проверяем работу на тестовом примере
+# Chech on test example
 data_example = {i: [0] for i in X.columns}
 # print(data_example)
 example = {'salary': [120000],

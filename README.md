@@ -1,42 +1,42 @@
-# Два модуля машинного обучения
+# Two macine learning modules
 
-## Первый модуль - trips
+## First module - trips
 
-### Описание
+### Description
 
-Модель советует в какой город стоит поехать 
-для отдыха по следующим заданным параметрам:
- - уровень зарплаты
- - возраст
- - количество членов семьи
- - город проживания
- - вид предпочитаемого отдыха
- - предпочитаемый вид транспорта для перемещения
+Model suggest the city which should be choosen 
+for vaction by the next provided parameters:
+ - salary
+ - age
+ - number of family members
+ - city of living
+ - preferred type of activity
+ - preferred type of transport
 
-## Второй модуль - currency
+## Second module - currency
 
-### Описание
+### Description
 
-Модель предсказывает курс доллара на основаниие базы данных ЦБ.
-Были использованны разные алгоритмы обучения моделей.
-Их результаты отображенны на графике для удобства 
-сравнения с реальными данными и определения качества работы моделей.
-Также выводится средняя абсолютная погрешность для каждой модели.
-Для одной из моделей был произведен подбор оптимальных параметров
-с помощью GridSearch CV (Cross-Validation).
+The model predicts the dollar exchange rate based on the Central Bank database.
+Various algorithms for training models were used.
+Their results are displayed on the graph for convenient
+comparison with real data and determining the quality of the models.
+The mean absolute error for each model is also displayed.
+For one of the models, the optimal parameters were selected
+by using GridSearch CV (Cross-Validation).
 
-## Запуск
+## Run
 
-Оба модуля запускаются одним способом:
-1. установка необходимых зависимостей `python -m pip install -r requirements.txt`
-2. запуск `python trips_model.py`/`python currency.py`
+Both modules are run using these steps:
+1. Dependency installation `python -m pip install -r requirements.txt`
+2. Run `python trips_model.py`/`python currency.py`
  
-## Инструменты
-В рамках проекта были использованны:
- - библиотека [pandas](https://pandas.pydata.org/)
- - библиотека [sklearn](https://scikit-learn.org/stable/)
- - библиотека [matplotlib](https://matplotlib.org/3.3.2/index.html)
- - база [ЦБ](http://www.cbr.ru/currency_base/dynamics/)
+## Tools
+For this project next tools were used:
+ - library [pandas](https://pandas.pydata.org/)
+ - library [sklearn](https://scikit-learn.org/stable/)
+ - library [matplotlib](https://matplotlib.org/3.3.2/index.html)
+ - database [Central Bank](http://www.cbr.ru/currency_base/dynamics/)
  
  
  
